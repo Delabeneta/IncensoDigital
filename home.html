@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Site dedicado a novenas e orações católicas. A oração é o princípio, o progresso e o complemento de todas as virtudes." />
+  <meta name="keywords" content="novenas, orações, católico, devoção, São José, Nossa Senhora, São Tarcísio" />
+  <title>Novenas e Orações</title>
+
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✝</text></svg>">
+  
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ 
+  <!-- CSS organizado em arquivos separados -->
+
+  <link rel="stylesheet" href="assets/css/pages/home.css">
+  <link rel="stylesheet" href="assets/css/pages/novena.css">
+ 
+</head>
+
+<body>
+
+ <div class="reading-progress">
+   <div class="progress-bar"></div>
+ </div>
+  
+  <header>
+    <div class="header-content">
+      <h1>Novenas e Orações</h1>
+      <p>Seu santuário digital de Novenas e Orações</p>
+    </div>
+  </header>
+
+  <nav aria-label="Navegação principal">
+    <ul>
+      <li><a href="home.html" aria-current="page"><i class="fas fa-home" aria-hidden="true"></i> Início</a></li>
+      <li><a href="#novenas"><i class="fas fa-praying-hands" aria-hidden="true"></i> Novenas</a></li>
+      <li><a href="#novenas"><i class="fas fa-book-bible" aria-hidden="true"></i> Orações</a></li>
+    </ul>
+  </nav>
+
+  <main id="main-content">
+ 
+
+    <!-- Novenas em Destaque -->
+    <section class="novenas-section" id="novenas">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Novenas em Destaque</h2>
+          <p class="section-subtitle"> "A oração é o princípio, o progresso e o complemento de todas as virtudes"</p>
+        </div>
+
+        <div class="cards-grid">
+          <!-- Card 1 -->
+          <article class="card animate-on-scroll" id="novena-tarcisio">
+            <div class="card-body">
+              <h3 class="card-title">São Tarcísio</h3>
+              <p class="card-text">Novena dedicada ao padroeiro dos coroinhas, mártir da Eucaristia e exemplo de fé e pureza para os jovens. Tradicionalmente rezada nos dias que antecedem sua festa em 15 de agosto.</p>
+              <div class="card-footer">
+                <a href="novenas_pages/tarcisio.html" class="btn"><i class="fas fa-praying-hands" aria-hidden="true"></i> Rezar Novena</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="card animate-on-scroll unavailable" id="novena-sao-jose">
+            <div class="card-body">
+              <h3 class="card-title ">São José</h3>
+              <p class="card-text">Peça a intercessão do pai adotivo de Jesus em suas necessidades familiares, profissionais e espirituais. Esta novena é especialmente popular no mês de março, dedicado a São José.</p>
+              <div class="card-footer">
+                <a class="btn"><i class="fas fa-praying-hands" aria-hidden="false"></i> Em Breve </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="card animate-on-scroll unavailable" id="novena-nossa-senhora">
+            <div class="card-body">
+              <h3 class="card-title">Nossa Senhora</h3>
+              <p class="card-text">Consagre-se à Virgem Maria através desta poderosa novena de entrega e confiança materna. Muitos fiéis a rezam especialmente durante o mês de maio, mês mariano por excelência.</p>
+              <div class="card-footer">
+                <a class="btn"><i class="fas fa-praying-hands" aria-hidden="true"></i> Em Breve </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4 - Novo -->
+          <article class="card animate-on-scroll unavailable" id="novena-santo-antonio">
+            <div class="card-body">
+              <h3 class="card-title">Santo Antônio</h3>
+              <p class="card-text">Invoque a proteção do santo casamenteiro e das causas perdidas. Santo Antônio é conhecido por sua intercessão poderosa em questões do coração e na busca por objetos perdidos.</p>
+              <div class="card-footer">
+                <a class="btn"><i class="fas fa-praying-hands" aria-hidden="true"></i> Em Breve </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5 - Novo -->
+          <article class="card animate-on-scroll unavailable" id="novena-santa-rita">
+            <div class="card-body">
+              <h3 class="card-title">Santa Rita de Cássia</h3>
+              <p class="card-text">A santa das causas impossíveis oferece esperança nos momentos mais difíceis. Sua novena é poderosa para situações que parecem sem solução e fortalece a fé em tempos de provação.</p>
+              <div class="card-footer">
+                <a  class="btn"><i class="fas fa-praying-hands" aria-hidden="true"></i> Em Breve </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 6 - Novo -->
+          <article class="card animate-on-scroll unavailable" id="novena-sao-francisco">
+            <div class="card-body">
+              <h3 class="card-title">São Francisco de Assis</h3>
+              <p class="card-text">Novena ao santo da simplicidade e amor à natureza. São Francisco nos ensina a viver com humildade e a encontrar Deus em todas as criaturas, buscando a paz interior.</p>
+              <div class="card-footer">
+                <a class="btn"><i class="fas fa-praying-hands" aria-hidden="true"></i> Em Breve </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+    <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-links">
+      <a href="#" class="footer-link">Sobre</a>
+        <a href="#" class="footer-link">Contato</a>
+        <a href="#" class="footer-link">Política de Privacidade</a>
+        <a href="#" class="footer-link">Termos de Uso</a>
+      </div>
+      <p class="copyright">© 2025 Incenso Digital. Todos os direitos reservados.</p>
+      <p class="copyright">"E depois dele virá uma multidão de santos." Profecia de Sao Francisco a Carlo Acutis</p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Voltar ao topo">
+    <i class="fas fa-arrow-up"></i>
+
+
+  <script src="assets/js/home.js"></script>
+</body>
+</html>

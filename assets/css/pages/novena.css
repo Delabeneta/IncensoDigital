@@ -1,0 +1,775 @@
+:root {
+  --primary: #3a5a78;
+  --primary-dark: #1e3a5f;
+  --primary-light: #a8c3d9;
+  --secondary: #6c757d;
+  --accent: #c19a6b;
+  --accent-light: #e8d5b5;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --text: #2d3748;
+  --text-light: #6c757d;
+  --success: #28a745;
+  
+  /* Tipografia */
+  --font-sans: 'Open Sans', system-ui, -apple-system, sans-serif;
+  --font-serif: 'EB Garamond', serif;
+  
+  /* Espaçamentos */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  
+  /* Bordas */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+  
+  /* Sombras */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+  
+  /* Transições */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* Reset moderno e estilos gerais */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text);
+  background-color: var(--light);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Layout  principal*/
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+
+/* 4. COMPONENTES */
+  /* 4.1 Header */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-sm);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* container do header com flexbox */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-md) 0;
+}
+
+/* Estilo do logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  text-decoration: none;
+  transition: var(--transition-normal);
+}
+
+.logo:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+  transition: transform 0.3s ease;
+
+}
+
+.logo-text {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--primary);
+  font-weight: 700;
+  transition: color 0.3s ease;
+
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: var(--space-lg);
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  padding: var(--space-sm) 0;
+  position: relative;
+  transition: var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-link:hover {
+  color: var(--accent);
+}
+
+
+/* efeito de sublinhado nos links */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent);
+  transition: var(--transition-normal);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: var(--primary);
+}
+
+.nav-link.active::after {
+  width: 100%;
+  background-color: var(--primary);
+}
+
+
+/* 4.2 Hero Section - destaque */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  padding: var(--space-xl) 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../img/textures/paper-texture.jpg') no-repeat center/cover;
+  opacity: 0.1;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.hero-text {
+  max-width: 600px;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--space-md);
+}
+
+.hero-title-line {
+  display: block;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.hero-title-line:nth-child(1) {
+  animation-delay: 0.3s;
+}
+
+.hero-title-line:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: rgba(255,255,255,0.9);
+  margin-bottom: var(--space-lg);
+  opacity: 0;
+  animation: fadeIn 1s ease 0.9s forwards;
+  max-width: 80%;
+}
+
+.hero-actions {
+  display: flex;
+  gap: var(--space-md);
+  opacity: 0;
+  animation: fadeIn 1s ease 1.2s forwards;
+}
+
+/* BOTÕES */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: 0.8rem 1.75rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition-normal);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: white;
+  box-shadow: 0 4px 15px rgba(193, 154, 107, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(193, 154, 107, 0.4);
+  background-color: #b68a5a;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255,255,255,0.1);
+  border-color: white;
+}
+
+/* 4.3 Cards */
+.prayer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-lg);
+  margin: var(--space-xl) 0;
+}
+
+.prayer-card {
+  background: white;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.prayer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-header {
+  background-color: var(--primary);
+  color: white;
+  padding: var(--space-md);
+  text-align: center;
+  position: relative;
+}
+
+.card-header h3 {
+  font-size: 1.25rem;
+}
+
+.card-body {
+  padding: var(--space-md);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.saint-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: var(--shadow-md);
+  margin: -60px auto var(--space-md);
+  position: relative;
+  z-index: 2;
+  background-color: white;
+}
+
+.prayer-text {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: var(--space-md);
+  color: var(--text);
+}
+
+/* Footer */
+.footer {
+  background-color: var(--dark);
+  color: white;
+  padding: var(--space-xl) 0;
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.footer-link {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.footer-link:hover {
+  color: var(--accent);
+}
+
+.copyright {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: var(--space-md);
+}
+
+/* Animações */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+
+
+/* Barra de progresso */
+.progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(0,0,0,0.05);
+  z-index: 1000;
+}
+
+
+
+/* Estilos específicos para o cabeçalho da novena */
+/* 5. PÁGINA DE NOVENA */
+.novena-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem 0;
+  position: relative;
+}
+
+.novena-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: var(--accent);
+}
+
+.novena-header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.saint-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid white;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 1rem;
+}
+
+.novena-title-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.novena-header h1 {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.novena-subtitle {
+  font-size: 1.1rem;
+  color: var(--accent);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.novena-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  justify-content: center;
+}
+
+.meta-item i {
+  color: var(--accent);
+}
+
+
+
+/* 9.1 Tablet (768px) */
+@media (max-width: 768px) {
+  /* Header Global */
+  .header-container {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  
+  .nav-list {
+    gap: var(--space-md);
+  }
+  
+  /* Hero Section */
+  .hero {
+    padding: var(--space-lg) 0;
+    min-height: auto;
+  }
+  
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  
+  /* Header da Novena */
+  .novena-header {
+    padding: 1rem 0;
+  }
+  
+  .novena-header h1 {
+    font-size: 1.6rem;
+  }
+  
+  .novena-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  
+  .saint-image {
+    width: 120px;
+    height: 120px;
+    border-width: 4px;
+  }
+  
+  .novena-header-content {
+    gap: 1rem;
+  }
+  
+  .novena-meta-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  
+  .meta-item {
+    font-size: 0.85rem;
+    justify-content: center;
+  }
+  
+  /* Accordion */
+  .day-accordion {
+    margin-bottom: 1rem;
+  }
+  
+  .day-btn {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    align-items: center;
+  }
+  
+  .day-btn i {
+    order: 4;
+    font-size: 0.9rem;
+    margin-left: 0;
+  }
+  
+  .day-content {
+    padding: 0.75rem;
+  }
+}
+
+/* 9.2 Mobile (480px) */
+@media (max-width: 480px) {
+  /* Hero Section */
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+  
+  /* Grid de Oração */
+  .prayer-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Header da Novena */
+  .novena-header h1 {
+    font-size: 1.4rem;
+  }
+  
+  .novena-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .saint-image {
+    width: 100px;
+    height: 100px;
+    border-width: 3px;
+  }
+  
+  .novena-header-content {
+    gap: 0.8rem;
+  }
+  
+  .meta-item {
+    font-size: 0.8rem;
+    justify-content: flex-start;
+    padding: 0 1rem;
+  }
+
+    .day-btn {
+    padding: 0.7rem 1rem;
+    gap: 0.1rem;
+    flex-wrap: nowrap; /* Impede quebra de linha */
+    justify-content: flex-start; 
+    }
+
+ .day-number {
+    flex: 0 0 35px;
+    font-size: 0.8rem;
+    order: 1;
+  }
+
+  .day-date {
+    flex: 0 0 45px; 
+    font-size: 0.75rem;
+    order: 2;
+    text-align: center;
+    padding: 0;
+    margin: 0 5px;
+  }
+  
+  .day-btn i {
+    order: 3;
+    font-size: 0.8rem;
+    margin-left: auto;
+     display: block; /* Garante que a seta seja visível */
+    min-width: 15px; /* Garante espaço para a seta */
+  }
+  
+}
+/* Espaçamentos para as seções */
+.novena-intro,
+.prayer-section,
+.novena-days,
+.sharing-section {
+  margin-bottom: 3rem;
+}
+
+/* Títulos das seções */
+.novena-article h2 {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--primary-light);
+  display: inline-block;
+}
+
+/* Espaçamento interno dos cards */
+.card {
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+
+/* voltar ao topo */
+
+.btn-top {
+  position: fixed;
+  bottom: var(--space-lg);
+  right: var(--space-lg);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-normal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.btn-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.btn-top:hover {
+  background-color: var(--primary);
+  transform: translateY(-3px);
+}
+
+/* Ajuste dos dias da novena*/
+.day-accordion {
+  margin-bottom: 1.5rem;
+}
+
+.day-btn {
+  width: 100%;
+  padding: 1rem;
+  text-align: left;
+  background: var(--primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all var(--transition-fast);
+  gap: 0.5rem; /* epsaço entre os elementos*/
+  border-radius: all var(--radius-md); /* Borda arredondada w */
+ 
+}
+
+/* conteudo de retangulo */
+
+.day-number {
+  font-weight: bold;
+  min-width: 60px; /* Largura fixa para alinhar os números */
+  text-align: left;
+}
+
+
+.day-date {
+  min-width: 60px; /* Largura fixa para a data */
+  text-align: center;
+}
+
+
+.day-content {
+  padding: 1rem;
+  background: white;
+  display: none; /* aqui é para esconder o conteudo */
+}
+
+/* Mostra o conteúdo quando apertado*/
+.day-accordion.active .day-content {
+  display: block;
+}
+
+/* Seta simples */
+.day-btn i {
+  transition: transform 0.3s ease;
+}
+
+.day-accordion.active .day-btn i {
+  transform: rotate(180deg);
+}
+
+.day-btn:hover {
+  background: var(--primary-light); /* Cor de fundo ao passar o mouse */
+}
+
+.prayer-content p {
+  margin-bottom: 1rem;
+}
