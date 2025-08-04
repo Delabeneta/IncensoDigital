@@ -238,3 +238,27 @@ window.AppFunctions = {
   initBookmarkSystem,
   initGeneralFeatures
 };
+
+// Adicione ao seu arquivo JS
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('name-modal');
+  const btn = document.getElementById('open-modal');
+  const closeBtn = document.querySelector('.close-modal');
+
+  btn.addEventListener('click', () => {
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Trava scroll da página
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  });
+});
