@@ -66,7 +66,7 @@ body {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--space-md);
+  padding: 0 -1px;
 }
 
 
@@ -74,7 +74,7 @@ body {
   /* 4.1 Header */
 
 .header {
-    margin-bottom: 50px;
+  margin-bottom: 50px;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -563,7 +563,7 @@ body {
   }
   
   .day-content {
-    padding: 0.75rem;
+    padding: 1.5rem 0;
   }
 }
 
@@ -643,8 +643,17 @@ body {
 /* Espaçamentos para as seções */
 .novena-intro,
 .prayer-section,
+.novena-days,
 .sharing-section {
   margin-bottom: 3rem;
+}
+
+.novena-days-title {
+  width: 100%;
+  max-width: 900px; /* Mesma largura do container principal */
+  margin: 0 auto;   
+  padding: 0 40px; 
+  text-align: left; 
 }
 
 /* Títulos das seções */
@@ -764,4 +773,7 @@ body {
   text-justify: inter-word;
   hyphens: auto;
   margin-bottom: 1rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }

@@ -17,7 +17,6 @@ function initNovenaAccordion() {
   
   accordions.forEach(accordion => {
     const btn = accordion.querySelector('.day-btn');
-    
     btn.addEventListener('click', () => {
       // Fecha todos os outros
       document.querySelectorAll('.day-accordion').forEach(item => {
@@ -207,7 +206,7 @@ function initSocialSharing() {
 function openCurrentDay() {
   // Calcula o dia atual da novena (baseado na data)
   const today = new Date();
-  const startDate = new Date(today.getFullYear(), 8, 6); // 6 de agosto (mês 8 = agosto)
+  const startDate = new Date(today.getFullYear(), 7, 6); // 6 de agosto (mês 0 = jan; 7 = agost)
   
   // Se estivermos no período da novena (6-14 agosto)
   if (today >= startDate && today <= new Date(today.getFullYear(), 7, 14)) {

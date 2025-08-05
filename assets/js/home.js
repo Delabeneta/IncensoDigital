@@ -72,8 +72,7 @@ function initGeneralFeatures() {
   // Inicializa botão "Voltar ao topo"
   initBackToTop();
   
-  // Inicializa sistema de favoritos
-  initBookmarkSystem();
+
   
   // Inicializa animações por scroll
   initScrollAnimations();
@@ -119,56 +118,9 @@ function initBackToTop() {
   toggleVisibility(); // Checa estado inicial
 }
 
-// Sistema de favoritos em memória (substitui localStorage)
-let bookmarkedPrayers = new Set();
 
-function initBookmarkSystem() {
-  const bookmarkButtons = document.querySelectorAll('.bookmark-btn');
-  if (bookmarkButtons.length === 0) return;
 
-  bookmarkButtons.forEach(button => {
-    const card = button.closest('.card');
-    if (!card) return;
-    
-    const prayerId = card.id || card.dataset.id;
-    const prayerTitleElement = card.querySelector('.card-title');
-    const prayerTitle = prayerTitleElement ? prayerTitleElement.textContent : 'Oração';
-    
-    // Estado inicial
-    const isBookmarked = bookmarkedPrayers.has(prayerId);
-    updateBookmarkButton(button, isBookmarked);
 
-    button.addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      
-      const currentlyBookmarked = bookmarkedPrayers.has(prayerId);
-      
-      if (currentlyBookmarked) {
-        bookmarkedPrayers.delete(prayerId);
-        updateBookmarkButton(button, false);
-        showNotification(`${prayerTitle} removida dos favoritos.`);
-      } else {
-        bookmarkedPrayers.add(prayerId);
-        updateBookmarkButton(button, true);
-        showNotification(`${prayerTitle} adicionada aos favoritos!`);
-      }
-    });
-  });
-}
-
-function updateBookmarkButton(button, isBookmarked) {
-  const icon = button.querySelector('i');
-  if (!icon) return;
-  
-  if (isBookmarked) {
-    button.classList.add('active');
-    icon.className = 'fas fa-bookmark';
-  } else {
-    button.classList.remove('active');
-    icon.className = 'far fa-bookmark';
-  }
-}
 
 function showNotification(message) {
   const notification = document.getElementById('notification');
@@ -234,31 +186,32 @@ window.addEventListener('scroll', debouncedScrollHandler);
 // Exporta funções para uso global se necessário
 window.AppFunctions = {
   showNotification,
-  bookmarkedPrayers,
-  initBookmarkSystem,
   initGeneralFeatures
 };
 
-// Adicione ao seu arquivo JS
+
 document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('name-modal');
   const btn = document.getElementById('open-modal');
-  const closeBtn = document.querySelector('.close-modal');
+  const closeBtn = document.querySelector('.modal-close');
+  const overlay = document.querySelector('.modal-overlay');
 
   btn.addEventListener('click', () => {
     modal.style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Trava scroll da página
+    document.body.style.overflow = 'hidden';
   });
 
-  closeBtn.addEventListener('click', () => {
+  function closeModal() {
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
-  });
+  }
 
-  window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.style.display = 'none';
-      document.body.style.overflow = 'auto';
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', closeModal);
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.style.display === 'block') {
+      closeModal();
     }
   });
 });
