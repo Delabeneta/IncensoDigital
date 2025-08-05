@@ -74,6 +74,7 @@ body {
   /* 4.1 Header */
 
 .header {
+    margin-bottom: 50px;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -147,7 +148,6 @@ body {
 
 /* efeito de sublinhado nos links */
 .nav-link::after {
-  content: '';
   position: absolute;
   bottom: 0;
   left: 0;
@@ -425,16 +425,6 @@ body {
   position: relative;
 }
 
-.novena-header::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 3px;
-  background: var(--accent);
-}
 
 .novena-header-content {
   display: flex;
@@ -653,7 +643,6 @@ body {
 /* Espaçamentos para as seções */
 .novena-intro,
 .prayer-section,
-.novena-days,
 .sharing-section {
   margin-bottom: 3rem;
 }
