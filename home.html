@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <meta http-equiv="Content-Security-Policy" 
+      content="default-src 'self'; 
+               style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; 
+               script-src 'self' 'unsafe-inline'; 
+               font-src 'self' https://cdnjs.cloudflare.com;
+               img-src 'self' data:;
+               connect-src 'self';">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Site dedicado a novenas e orações católicas. A oração é o princípio, o progresso e o complemento de todas as virtudes." />
   <meta name="keywords" content="novenas, orações, católico, devoção, São José, Nossa Senhora, São Tarcísio" />
+  <meta name="theme-color" content="#2c3e50">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
   <title>Novenas e Orações</title>
 
 
@@ -13,8 +24,6 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
  
-  <!-- CSS organizado em arquivos separados -->
-
   <link rel="stylesheet" href="assets/css/pages/home.css">
   <link rel="stylesheet" href="assets/css/pages/novena.css">
  
@@ -127,14 +136,12 @@
 <section class="about-section" id="sobre">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">Uma casa digital para sua vida espiritual</h2>
+      <h2 class="section-title">Uma casa digital para sua vida espiritual
+    </h2>
     </div>
 
     <!-- Grid -->
-    <div class="about-grid">
-      <div class="about-image">
-      </div>
-      <div class="about-text">
+     <div class="about-text"></div>
         <h3>Nossa missão</h3>
         <p>Em um mundo acelerado, oferecemos um refúgio digital para orações e novenas, combinando tradição católica com tecnologia acessível.</p>
         
@@ -166,10 +173,11 @@
 </section>
 
 <!-- Modal  -->
-<div class="modal" id="name-modal">
+<div class="modal" id="name-modal"  role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+  <div class="modal-overlay" aria-label="Fechar modal"></div>
   <div class="modal-content">
-    <span class="close-modal">&times;</span>
-    <h3><i class="fas fa-fire-alt"></i> Incenso Digital</h3>
+   <button class="modal-close" aria-label="Fechar modal">&times;</button>
+    <h3 id="modal-title"><i class="fas fa-fire-alt"></i> Incenso Digital</h3>
     <div class="modal-scroll">
       <p>O incenso, usado no templo como parte do culto a Deus, simboliza a oração que sobe aos céus. Quando os magos o ofereceram a Jesus, reconheceram Sua divindade e O adoraram como Deus.</p>
       
@@ -206,8 +214,8 @@
   </footer>
 
   <button class="back-to-top" aria-label="Voltar ao topo">
-    <i class="fas fa-arrow-up"></i>
-
+    <i class="fas fa-arrow-up" arial-hidden="true"></i>
+    </button>
 
   <script src="assets/js/home.js"></script>
 </body>

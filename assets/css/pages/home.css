@@ -3,9 +3,11 @@
       --primary-light: #5d6d7e;
       --primary-dark: #1c2833;
       --accent: #d4af37;
+
       --light: #f5f5f5;
       --dark: #1c2833;
       --text-light: #666;
+
       --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
       --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
       --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.2);
@@ -24,7 +26,7 @@
       min-height: 100vh;
     }
 
-    /* Header melhorado */
+    /* Header */
     header {
       background: var(--gradient-primary);
       color: white;
@@ -77,7 +79,7 @@
       margin: 0 auto;
     }
 
-    /* Navegação melhorada */
+    /* Navegação */
     nav {
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
@@ -131,7 +133,7 @@
       padding: 0 1rem;
     }
 
-    /* Botões melhorados */
+    /* Botões */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -183,7 +185,7 @@
 
     .section-header {
       text-align: center;
-      margin-bottom: 3rem;
+      margin-bottom: 1.5rem;
     }
 
     .section-title {
@@ -195,15 +197,7 @@
       display: inline-block;
     }
 
-    .section-title::after {
-      content: '✝';
-      position: absolute;
-      bottom: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 1.2rem;
-      color: var(--accent);
-    }
+  
 
     .section-subtitle {
       font-size: 1.1rem;
@@ -219,7 +213,7 @@
       gap: 2rem;
     }
 
-    /* Cards das novenas melhorados */
+    /* Cards das novenas */
     .card {
       background: white;
       border-radius: 12px;
@@ -264,17 +258,16 @@
       gap: 0.5rem;
     }
 
-    .card-title::before {
-      content: '✝';
-      color: var(--accent);
-      font-size: 1.2em;
-    }
+   
 
     .card-text {
       color: var(--text-light);
       margin-bottom: 1.5rem;
       flex-grow: 1;
       line-height: 1.6;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
     }
 
     .card-footer {
@@ -329,37 +322,6 @@
       box-shadow: 0 10px 30px rgba(44, 62, 80, 0.4);
     }
 
-   /* Footer 
-.footer {
-  background-color: var(--dark);
-  color: white;
-  padding: var(--space-xl) 0;
-  text-align: center;
-}
-
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: var(--space-lg);
-  margin-bottom: var(--space-lg);
-  flex-wrap: wrap;
-}
-
-.footer-link {
-  color: rgba(255,255,255,0.8);
-  text-decoration: none;
-  transition: var(--transition-fast);
-}
-
-.footer-link:hover {
-  color: var(--accent);
-}
-
-.copyright {
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.5);
-  margin-top: var(--space-md);
-} */
 
     /* Responsivo */
     @media (max-width: 768px) {
@@ -425,152 +387,158 @@
     }
 
 
- /* ===== SEÇÃO SOBRE ===== */
-.about-section {
-  padding: 4rem 0;
-  background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
-}
+    .about-section {
+     
+      padding: 0.5rem 0;
+      background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+    }
+  
+    .about-section .section-header {
+      margin-bottom: 1.5rem;
+    }
 
-.about-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  align-items: center;
-}
+   
+    .about-text h3 {
+     color: var(--primary);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
 
-.about-image img {
-  width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
+    .about-text p {
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
 
-.about-features {
-  list-style: none;
-  padding: 1.5rem 0;
-}
+    .about-features {
+      list-style: none;
+      padding: 1.5rem 0;
+    }
 
-.about-features li {
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+    .about-features li {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0.75rem;
+      border-radius: 8px;
+      transition: var(--transition);
+    }
 
-.about-features i {
-  color: #8e6c88;
-  font-size: 1.2rem;
-}
+    .about-features i {
+      color: var(--primary);
+      font-size: 1.2rem;
+      min-width: 20px;
+    }
 
-/* ===== SEÇÃO EXTRA (INCENSO DIGITAL) ===== */
-.about-extra {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px dashed #ddd;
-  text-align: center;
-}
+    /* ===== SEÇÃO EXTRA (INCENSO DIGITAL) ===== */
+    .about-extra {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px dashed #ddd;
+      text-align: center;
+    }
 
-.about-extra h4 {
-  color: #8e6c88;
-  margin-bottom: 0.5rem;
-}
+    .about-extra h4 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
 
-/* ===== BOTÕES ===== */
-.btn-outline {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0.8rem 1.5rem;
-  border: 2px solid #8e6c88;
-  color: #8e6c88;
-  border-radius: 50px;
-  transition: all 0.3s;
-}
+    /* ===== BOTÕES ===== */
+    .btn-modal {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid #354172;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+      font-size: 1rem;
+    }
 
-.btn-outline:hover {
-  background: #8e6c88;
-  color: white;
-  transform: translateY(-3px);
-}
+    .btn-modal:hover {
+      background: #354172;
+      color: white;
+      transform: translateY(-2px);
+    }
 
-.btn-modal {
-  background: transparent;
-  color: #8e6c88;
-  border: 2px solid #8e6c88;
-  padding: 0.6rem 1.2rem;
-  border-radius: 50px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.3s;
-}
+    /* ===== MODAL ===== */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.7);
+    }
 
-.btn-modal:hover {
-  background: #8e6c88;
-  color: white;
-}
+    .modal-content {
+      background-color: #fff;
+      margin: 5% auto;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 600px;
+      position: relative;
+      animation: modalFadeIn 0.3s;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
 
-/* ===== MODAL ===== */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.7);
-}
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-.modal-content {
-  background-color: #fff;
-  margin: 5% auto;
-  padding: 2rem;
-  border-radius: 8px;
-  max-width: 600px;
-  position: relative;
-  animation: modalFadeIn 0.3s;
-}
+    .close-modal {
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #3b4486;
+      transition: color 0.3s;
+    }
 
-@keyframes modalFadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+    .close-modal:hover {
+      color: #4c4fa9;
+    }
 
-.close-modal {
-  position: absolute;
-  right: 1rem;
-  top: 1rem;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
+    .modal-content h3 {
+      color: #4f4a95;
+      margin-bottom: 1.5rem;
+      padding-right: 2rem;
+    }
 
-.modal-scroll {
-  max-height: 70vh;
-  overflow-y: auto;
-  padding-right: 1rem;
-}
+    .modal-scroll {
+      max-height: 60vh;
+      overflow-y: auto;
+      padding-right: 1rem;
+    }
 
-blockquote {
-  font-style: italic;
-  border-left: 3px solid #8e6c88;
-  padding-left: 1rem;
-  margin: 1.5rem 0;
-}
+    blockquote {
+      font-style: italic;
+      border-left: 4px solid #8e6c88;
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+      background: rgba(142, 108, 136, 0.05);
+      padding: 1rem;
+      border-radius: 4px;
+    }
 
-cite {
-  display: block;
-  text-align: right;
-  font-size: 0.9rem;
-  color: #666;
-}
-
-.modal-image {
-  width: 100%;
-  border-radius: 4px;
-  margin: 1rem 0;
-}
-
+    cite {
+      display: block;
+      text-align: right;
+      font-size: 0.9rem;
+      color: #4a47a1;
+      font-weight: 500;
+      margin-top: 0.5rem;
+    }
 .modal-final {
   text-align: center;
   font-weight: bold;
