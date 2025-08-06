@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
   // Carrega elementos do header e footer
   loadIncludes();
@@ -72,8 +71,6 @@ function initGeneralFeatures() {
   // Inicializa botão "Voltar ao topo"
   initBackToTop();
   
-
-  
   // Inicializa animações por scroll
   initScrollAnimations();
 }
@@ -88,18 +85,18 @@ function initReadingProgress() {
     if (isUpdating) return;
 
     requestAnimationFrame(() => { 
-    const scrollTop = windows.pageYOffset || document.documentElement.scrollTop;
-    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollProgress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollProgress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
 
+      progressBar.style.transform = `scaleX(${scrollProgress / 100})`;
+      progressBar.style.transformOrigin = 'left';
 
-    progressBar.style.transform = `scaleX(${scrollProgress / 100})`;
-    progressBar.style.transformOrigin = 'left';
+      isUpdating = false;
+    });
 
-    isUpdating = false;
-  });
-
-  isUpdating = true;
+    isUpdating = true;
+  }
 
   let scrollTimeout;
   function debouncedUpdateProgress() {
@@ -118,8 +115,7 @@ function initBackToTop() {
   let isVisible = false; 
 
   function toggleVisibility() {
-    const shouldShow = window.pageXOffset > 300;
-
+    const shouldShow = window.pageYOffset > 300;
 
     if (shouldShow && !isVisible) {
       backToTopButton.classList.add('visible');
@@ -130,14 +126,9 @@ function initBackToTop() {
     }
   }
 
-  let scrollTimeout
-  function debounceToggleVisibiility(){
-    if (scrollTimeout) clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(toggleVisibility, 16);
-  }
-  }
+  const debouncedToggleVisibility = debounce(toggleVisibility, 16);
 
-  window.addEventListener('scroll', debounceToggleVisibiility, {passive: true});
+  window.addEventListener('scroll', debouncedToggleVisibility, {passive: true});
   
   backToTopButton.addEventListener('click', (e) => {
     e.preventDefault();
@@ -150,13 +141,12 @@ function initBackToTop() {
   toggleVisibility(); 
 }
 
-
 function showNotification(message) {
   const notification = document.getElementById('notification');
   const notificationText = document.getElementById('notification-text');
   
   if (!notification || !notificationText) {
-    console.log(message); // Fallback para console se não houver elementos de notificação
+    console.log(message);
     return;
   }
   
@@ -191,7 +181,7 @@ function initScrollAnimations() {
   });
 }
 
-// Funções utilitárias
+// Função debounce utilitária
 function debounce(func, wait) {
   let timeout;
   return function executedFunction(...args) {
@@ -204,17 +194,10 @@ function debounce(func, wait) {
   };
 }
 
-// Otimiza performance dos event listeners de scroll
-const debouncedScrollHandler = debounce(() => {
-}, 16); 
-
-window.addEventListener('scroll', debouncedScrollHandler);
-
 window.AppFunctions = {
   showNotification,
   initGeneralFeatures
 };
-
 
 document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('name-modal');
@@ -239,5 +222,5 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape' && modal.style.display === 'block') {
       closeModal();
     }
-  },{ passive: true});
+  }, { passive: true });
 });
