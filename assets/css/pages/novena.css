@@ -486,9 +486,94 @@ body {
   color: var(--accent);
 }
 
+/* pc (1024px) */
 
 
-/* 9.1 Tablet (768px) */
+/*  ======================
+    AJUSTES ESPECÍFICOS PARA DESKTOP (acima de 1024px)
+    ====================== */
+@media (min-width: 1024px) {
+  /* Container principal - ajuste fino para desktop */
+  .container {
+    padding: 0 2rem;
+  }
+
+  /* Header - mais espaço entre itens */
+  .nav-list {
+    gap: 2rem;
+  }
+
+  /* Ajuste fino do hero */
+  .hero-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  /* Seções de conteúdo - largura ideal para leitura */
+  .prayer-section, 
+  .sharing-section,
+  .novena-days {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Ajustes específicos dos dias da novena APENAS para desktop */
+  .day-accordion {
+    margin-bottom: 1.5rem;
+  }
+
+  .day-btn {
+    padding: 1.25rem 2rem;
+  }
+
+  .day-number {
+    min-width: 80px;
+    font-size: 1.1rem;
+  }
+
+  .day-date {
+    min-width: 100px;
+    text-align: center;
+  }
+
+  /* Aumentar um pouco o tamanho da fonte em desktop */
+  .prayer-content p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+}
+
+/*  ======================
+    AJUSTES PARA TELAS MUITO GRANDES (acima de 1440px)
+    ====================== */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1400px;
+  }
+  
+  /* Ajuste fino para evitar linhas muito longas de texto */
+  .prayer-content p {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .novena-header-content {
+    flex-direction: row;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .saint-image {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* 9.2 Tablet (768px) */
 @media (max-width: 768px) {
   /* Header Global */
   .header-container {
