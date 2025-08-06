@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function() {
   // Carrega elementos do header e footer
   loadIncludes();
@@ -24,7 +25,6 @@ function loadIncludes() {
       })
       .then(data => {
         element.innerHTML = data;
-        // Reinicializa funcionalidades após carregar includes
         setTimeout(() => {
           initGeneralFeatures();
         }, 100);
@@ -82,14 +82,32 @@ function initReadingProgress() {
   const progressBar = document.querySelector('.reading-progress');
   if (!progressBar) return;
 
+  let isUpdating = false;
+
   function updateProgress() {
-    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    if (isUpdating) return;
+
+    requestAnimationFrame(() => { 
+    const scrollTop = windows.pageYOffset || document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollProgress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
-    progressBar.style.width = scrollProgress + '%';
+
+
+    progressBar.style.transform = `scaleX(${scrollProgress / 100})`;
+    progressBar.style.transformOrigin = 'left';
+
+    isUpdating = false;
+  });
+
+  isUpdating = true;
+
+  let scrollTimeout;
+  function debouncedUpdateProgress() {
+    if (scrollTimeout) clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(updateProgress, 10);
   }
 
-  window.addEventListener('scroll', updateProgress);
+  window.addEventListener('scroll', debouncedUpdateProgress, { passive: true });
   updateProgress(); // Chama uma vez para definir estado inicial
 }
 
@@ -97,15 +115,29 @@ function initBackToTop() {
   const backToTopButton = document.querySelector('.back-to-top');
   if (!backToTopButton) return;
 
+  let isVisible = false; 
+
   function toggleVisibility() {
-    if (window.pageYOffset > 300) {
+    const shouldShow = window.pageXOffset > 300;
+
+
+    if (shouldShow && !isVisible) {
       backToTopButton.classList.add('visible');
-    } else {
+      isVisible = true;
+    } else if (!shouldShow && isVisible) { 
       backToTopButton.classList.remove('visible');
+      isVisible = false;
     }
   }
 
-  window.addEventListener('scroll', toggleVisibility);
+  let scrollTimeout
+  function debounceToggleVisibiility(){
+    if (scrollTimeout) clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(toggleVisibility, 16);
+  }
+  }
+
+  window.addEventListener('scroll', debounceToggleVisibiility, {passive: true});
   
   backToTopButton.addEventListener('click', (e) => {
     e.preventDefault();
@@ -115,11 +147,8 @@ function initBackToTop() {
     });
   });
 
-  toggleVisibility(); // Checa estado inicial
+  toggleVisibility(); 
 }
-
-
-
 
 
 function showNotification(message) {
@@ -152,7 +181,6 @@ function initScrollAnimations() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('animate-in');
-        // Para de observar após animar
         observer.unobserve(entry.target);
       }
     });
@@ -178,12 +206,10 @@ function debounce(func, wait) {
 
 // Otimiza performance dos event listeners de scroll
 const debouncedScrollHandler = debounce(() => {
-  // Qualquer lógica adicional de scroll pode ir aqui
-}, 16); // ~60fps
+}, 16); 
 
 window.addEventListener('scroll', debouncedScrollHandler);
 
-// Exporta funções para uso global se necessário
 window.AppFunctions = {
   showNotification,
   initGeneralFeatures
@@ -213,5 +239,5 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape' && modal.style.display === 'block') {
       closeModal();
     }
-  });
+  },{ passive: true});
 });

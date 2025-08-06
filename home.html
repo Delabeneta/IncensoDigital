@@ -8,6 +8,7 @@
                font-src 'self' https://cdnjs.cloudflare.com;
                img-src 'self' data:;
                connect-src 'self';">
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Site dedicado a novenas e orações católicas. A oração é o princípio, o progresso e o complemento de todas as virtudes." />
@@ -22,11 +23,11 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✝</text></svg>">
   
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
  
-  <link rel="stylesheet" href="assets/css/pages/home.css">
-  <link rel="stylesheet" href="assets/css/pages/novena.css">
- 
+   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/css/pages/home.css" as="style">
+  <link rel="preload" href="assets/css/pages/novena.css" as="style">
+
 </head>
 
 <body>
@@ -217,6 +218,6 @@
     <i class="fas fa-arrow-up" arial-hidden="true"></i>
     </button>
 
-  <script src="assets/js/home.js"></script>
+  <script src="assets/js/home.js" defer></script>
 </body>
 </html>
