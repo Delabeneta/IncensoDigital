@@ -1,5 +1,0 @@
-# JavaScript na pasta assets/
-assets/js/*.js linguist-vendored=false
-
-# arquivos CSS na pasta assets/
-assets/css/*.css linguist-vendored=false
