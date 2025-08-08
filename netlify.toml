@@ -1,4 +1,20 @@
+[build]
+  publish = "."  
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200  
+
+[[redirects]]
+  from = "http://*"
+  to = "https://incensodigital.netlify.app/:splat"
+  status = 301  # Força HTTPS
+
+# Headers de segurança básicos
 [[headers]]
   for = "/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, must-revalidate"
+    X-Frame-Options = "DENY"  # Evita iframes maliciosos
+    X-XSS-Protection = "1; mode=block"
+    Cache-Control = "public, max-age=3600"  # Cache de 1 hora
