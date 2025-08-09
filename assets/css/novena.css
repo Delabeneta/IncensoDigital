@@ -235,38 +235,6 @@ body {
   color: var(--text);
 }
 
-/* Footer */
-.footer {
-  background-color: var(--dark);
-  color: white;
-  padding: var(--space-xl) 0;
-  text-align: center;
-}
-
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: var(--space-lg);
-  margin-bottom: var(--space-lg);
-  flex-wrap: wrap;
-}
-
-.footer-link {
-  color: rgba(255,255,255,0.8);
-  text-decoration: none;
-  transition: var(--transition-fast);
-}
-
-.footer-link:hover {
-  color: var(--accent);
-}
-
-.copyright {
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.5);
-  margin-top: var(--space-md);
-}
-
 /* Animações */
 @keyframes fadeInUp {
   from {
@@ -284,9 +252,6 @@ body {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-
-
-
 
 /* Barra de progresso */
 .progress-container {
@@ -729,3 +694,81 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+
+.history-highlights{
+  margin-bottom: 25px;
+  background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 4px solid #de5b5b;
+}
+
+
+/* Seção de Compartilhamento Melhorada */
+    .sharing-section {
+      position: relative;
+      overflow: hidden;
+    }  
+    .sharing-section h2{
+      font-size: 1.6rem;
+
+    }
+    .social-share {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+
+     .btn-share.whatsapp {
+      background: linear-gradient(135deg, #25d366 0%, #20c35a 100%);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+      position: relative;
+      overflow: hidden;
+      min-width: 170px;
+      justify-content: center;
+    }
+
+    .btn-share.whatsapp::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.6s;
+    }
+
+    .btn-share.whatsapp:hover::before {
+      left: 100%;
+    }
+
+    .btn-share.whatsapp:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+      background: linear-gradient(135deg, #20c35a 0%, #1ab553 100%);
+    }
+
+    .btn-share.whatsapp:active {
+      transform: translateY(-1px);
+      transition: transform 0.1s;
+    }
+
+    .btn-share.whatsapp i {
+      font-size: 1.2rem;
+      animation: whatsappBounce 2s ease-in-out infinite;
+    }

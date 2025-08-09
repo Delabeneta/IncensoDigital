@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initBackToTop();
   initProgressBar();
   initSocialSharing();
-  initEmailSharing();
+
   
   // Auto-abre o dia atual
   openCurrentDay();
