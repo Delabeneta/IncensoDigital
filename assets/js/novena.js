@@ -206,10 +206,10 @@ function initSocialSharing() {
 function openCurrentDay() {
   // Calcula o dia atual da novena (baseado na data)
   const today = new Date();
-  const startDate = new Date(today.getFullYear(), 7, 6); // 6 de agosto (mês 0 = jan; 7 = agost)
+  const startDate = new Date(today.getFullYear(), 7, 7); // 7 de agosto (mês 0 = jan; 7 = agost)
   
-  // Se estivermos no período da novena (6-14 agosto)
-  if (today >= startDate && today <= new Date(today.getFullYear(), 7, 14)) {
+  // Se estivermos no período da novena (7-15 agosto)
+  if (today >= startDate && today <= new Date(today.getFullYear(), 7, 15)) {
     const daysDiff = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
     const currentDay = daysDiff + 1;
     
