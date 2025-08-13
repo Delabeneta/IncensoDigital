@@ -321,6 +321,11 @@ body {
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  text-indent: 1.5rem
+}
+
+.p32 {
+  font-style: italic;
 }
 
 /* Espaçamentos para as seções */
@@ -354,7 +359,7 @@ body {
 .prayer-section:nth-of-type(3) .prayer-content blockquote {
   margin-top: 0;
   padding-left: 1rem;
-  background: #f0eff2;
+  background: rgba(0,0,0,0.05);
   font-size: 1rem;
   line-height: 1.5;
   margin-left: 0.5rem;
@@ -363,22 +368,17 @@ body {
 /* Parágrafos especiais */
 .p2 {
   padding-left: 0.7rem;
-  color: #000000;  
+  font-weight: bold;
 }
 
 .p3 {
   display: flex;
   justify-content: center; 
   align-items: center;   
-  margin-top: 0; 
+  margin-top: 1rem;
+  font-weight: bold; 
 }
 
-.p31 {
-  display: flex;
-  justify-content: center; 
-  align-items: center;    
-  margin-top: 1rem;
-}
 
 /* =================================================================
    8. COMPONENTES ESPECIAIS
