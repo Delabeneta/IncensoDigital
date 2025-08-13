@@ -326,6 +326,8 @@ body {
 
 .p32 {
   font-style: italic;
+  font-size: 85%;
+  text-align:justify
 }
 
 
@@ -365,6 +367,7 @@ body {
   font-size: 1rem;
   line-height: 1.5;
   margin-left: 0.5rem;
+   text-align:justify
 }
 
 /* Parágrafos especiais */
@@ -395,7 +398,7 @@ body {
 
     cite {
       display: block;
-      text-align: right;
+      text-align: justify;
       font-size: 0.9rem;
       color: #343439;
       font-weight: 500;
