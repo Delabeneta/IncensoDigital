@@ -328,6 +328,8 @@ body {
   font-style: italic;
 }
 
+
+
 /* Espaçamentos para as seções */
 .novena-intro,
 .prayer-section,
@@ -379,6 +381,26 @@ body {
   font-weight: bold; 
 }
 
+
+    blockquote {
+      font-style: italic;
+      border-left: 4px solid var(--accent);
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+      background: rgba(193, 154, 107, 0.1);
+      padding: 1rem;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    cite {
+      display: block;
+      text-align: right;
+      font-size: 0.9rem;
+      color: #343439;
+      font-weight: 500;
+      margin-top: 0.5rem;
+    }
 
 /* =================================================================
    8. COMPONENTES ESPECIAIS

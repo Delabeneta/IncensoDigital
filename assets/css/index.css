@@ -36,11 +36,11 @@
     header {
       background: var(--gradient-primary);
       color: white;
-      padding: 3rem 1rem;
+      padding: 1.5rem 1rem;
       text-align: center;
       position: relative;
       overflow: hidden;
-      min-height: 40vh;
+      min-height: 25vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -78,7 +78,7 @@
     .header-content {
       position: relative;
       z-index: 2;
-      max-width: 650px;
+      max-width: 900px;
       margin: 0 auto;
       animation: headerFadeIn 1.5s ease-out;
 
