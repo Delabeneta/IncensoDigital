@@ -334,7 +334,7 @@ body {
 
 /* Espaçamentos para as seções */
 .novena-intro,
-.prayer-section,
+
 .novena-days,
 .sharing-section {
   margin-bottom: 1.5rem;
@@ -656,6 +656,20 @@ body {
     margin-left: auto;
     margin-right: auto;
   }
+
+  .prayer-section{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* Reduzir margens extras de títulos */
+.prayer-section h2,
+.prayer-section h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
 
   .day-accordion {
     margin-bottom: 1.5rem;
