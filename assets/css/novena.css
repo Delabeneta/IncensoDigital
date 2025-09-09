@@ -1,8 +1,4 @@
 /* =================================================================
-   QUARESMA DE SÃO MIGUEL add e CSS ORGANIZADO
-   ================================================================= */
-
-/* =================================================================
    1. VARIÁVEIS CSS
    ================================================================= */
 :root {
@@ -188,33 +184,13 @@ body {
    5. COMPONENTES - CARDS
    ================================================================= */
 .card {
+  border-radius: var(--radius-md);
   padding: 1.5rem;
   margin-bottom: 1.5rem;
   overflow: hidden;
 }
 
-.prayer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: var(--space-lg);
-  margin: var(--space-xl) 0;
-}
 
-.prayer-card {
-  background: white;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-  transition: var(--transition-normal);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.prayer-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-}
 
 .card-header {
   background-color: var(--primary);
@@ -224,9 +200,6 @@ body {
   position: relative;
 }
 
-.card-header h3 {
-  font-size: 1.25rem;
-}
 
 .card-body {
   padding: var(--space-md);
@@ -321,7 +294,7 @@ body {
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
-  text-indent: 1.5rem
+  text-indent: 1.5rem;
 }
 
 .p32 {
@@ -340,21 +313,34 @@ body {
   margin-bottom: 1.5rem;
 }
 
+.novena-days {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 /* Títulos das seções */
+
+
+
 .novena-article h2 {
   font-family: var(--font-serif);
-  font-size: 1.8rem;
+  font-size: 1.55rem;
   color: var(--primary);
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
   border-bottom: 2px solid var(--primary-light);
   display: inline-block;
 }
+.novena-article h3{
+  
+  font-size: 1.15rem;
+}
 
 /* Listas */
 .prayer-section ul {
-  list-style-position: inside;
-  padding-left: 4rem;
+  list-style-position: outside;
+  padding-left: 1.5rem;
   margin-left: 0; 
   margin-bottom: 0;
 }
@@ -650,12 +636,14 @@ body {
 
   .prayer-section, 
   .novena-intro,
-  .sharing-section,
-  .novena-days {
+  .sharing-section {
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
   }
+
+
+  
 
   .prayer-section{
     margin-top: 20px;
@@ -781,11 +769,7 @@ body {
   .btn {
     width: 100%;
   }
-  
-  .prayer-grid {
-    grid-template-columns: 1fr;
-  }
-  
+    
   .novena-header h1 {
     font-size: 1.4rem;
   }
