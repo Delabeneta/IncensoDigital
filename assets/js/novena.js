@@ -6,9 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
   initProgressBar();
   initSocialSharing();
 
-  
   // Auto-abre o dia atual
   openCurrentDay();
+
+  window.scrollTo(0, 0);
+
 });
 
 
