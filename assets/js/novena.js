@@ -204,31 +204,40 @@ function initSocialSharing() {
 
 
 function openCurrentDay() {
-  // Calcula o dia atual da novena (baseado na data)
-  const today = new Date();
-  const startDate = new Date(today.getFullYear(), 7, 7); // 7 de agosto (mês 0 = jan; 7 = agost)
+  // Calcula o dia atual da novena baseado na data no html mencionado
   
-  // Se estivermos no período da novena (7-15 agosto)
-  if (today >= startDate && today <= new Date(today.getFullYear(), 7, 15)) {
-    const daysDiff = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
-    const currentDay = daysDiff + 1;
+  const novena = document.querySelector('.novena-days');
+  if (!novena) return;
+  
+  const startDateStr = novena.dataset.start; // pega o dia do start lá
+  const totalDays = parseInt(novena.dataset.days, 10);
+
+  const today = new Date();
+  const startDate = new Date(startDateStr + "T00:00:00"); 
+ 
+  startDate.setHours(0,0,0,0);
+  today.setHours(0,0,0,0);
+
+  const daysDiff = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+  const currentDay = daysDiff + 1;
     
-    if (currentDay >= 1 && currentDay <= 9) {
-      const currentDayButton = document.querySelector(`.day-accordion:nth-child(${currentDay}) .day-btn`);
-      if (currentDayButton) {
-        setTimeout(() => {
-          currentDayButton.click();
-        }, 500);
-      }
-    }
-  } else {
-    // Fora do período, abre o primeiro dia
-    const firstDayButton = document.querySelector('.day-accordion:first-child .day-btn');
-    if (firstDayButton) {
-      setTimeout(() => {
-        firstDayButton.click();
-      }, 500);
-    }
+    if (currentDay < 1) 
+        currentDay = 1;
+    
+    if(currentDay > totalDays)
+        currentDay = totalDays
+    
+    const accordions = document.querySelectorAll('.day-accordion');
+    if (!accordions.length) return;
+
+  // Fecha todos antes
+  accordions.forEach(acc => acc.classList.remove('active'));
+
+  // Abre o do dia calculado (índice começa com 0)
+  const todayAccordion = accordions[currentDay - 1];
+  if (todayAccordion) {
+    todayAccordion.classList.add('active');
+    todayAccordion.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 }
 

@@ -281,7 +281,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 2.5rem;
-      margin-top: 2rem;
+  
     }
 
     /* Cards das novenas */
