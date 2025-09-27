@@ -762,8 +762,17 @@ body {
   }
   
   .day-content {
-    padding: 1.5rem 0;
+    padding: 1.5rem 0.7rem;
   }
+
+
+ 
+   .novena-days{
+    width: 104%;
+    margin-left: -0.2rem;
+    margin-top: -1rem;
+   }
+
 }
 
 /* =================================================================
